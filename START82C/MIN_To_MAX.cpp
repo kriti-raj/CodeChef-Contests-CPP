@@ -16,36 +16,37 @@ int main()
     cin >> t;
     while (t--)
     {
-        array<int, 26> arr = {0}, arr_2 = {0};
-        string str;
-        cin >> str;
-        int m, a;
-        m = str.size() / 2;
-
-        for (int i = 0; i < m; i++)
+        int a;
+        cin >> a;
+        int arr[a];
+        for (int i = 0; i < a; i++)
         {
-            a = int(str[i]) - 97;
-            arr[a]++;
+            cin >> arr[i];
         }
-
-        if (str.size() % 2 != 0)
+        int min = *min_element(arr, arr + a);
+        int count(0), counteq(0);
+        for (int i = 0; i < a; i++)
         {
-            m++;
+            if (arr[i] > min)
+            {
+                count++;
+            }
+            else if (arr[i] == min)
+            {
+                counteq++;
+            }
         }
-
-        for (int i = m; i < str.size(); i++)
+        if (count == 0)
         {
-            a = int(str[i]) - 97;
-            arr_2[a]++;
+            cout << 0 << endl;
         }
-
-        if (arr == arr_2)
+        else if (count >= counteq)
         {
-            cout << "YES" << endl;
+            cout << count << endl;
         }
         else
         {
-            cout << "NO" << endl;
+            cout << counteq << endl;
         }
 
         // cout << Case # << case_no << : << solution << endl;      //--> Apply Double Apostrophe

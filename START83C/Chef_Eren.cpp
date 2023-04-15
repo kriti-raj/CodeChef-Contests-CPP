@@ -9,6 +9,10 @@ typedef unsigned long long ull;
 /*================================================*/
 /*================================================*/
 
+int solution(int a, int b, int c)
+{
+}
+
 int main()
 {
     ll t(1);
@@ -16,36 +20,16 @@ int main()
     cin >> t;
     while (t--)
     {
-        array<int, 26> arr = {0}, arr_2 = {0};
-        string str;
-        cin >> str;
-        int m, a;
-        m = str.size() / 2;
-
-        for (int i = 0; i < m; i++)
+        int a, b, c, count(0);
+        cin >> a >> b >> c;
+        if (a % 2 == 0)
         {
-            a = int(str[i]) - 97;
-            arr[a]++;
+            cout << (b * (a / 2)) + (c * (a / 2)) << endl;
         }
 
-        if (str.size() % 2 != 0)
-        {
-            m++;
-        }
-
-        for (int i = m; i < str.size(); i++)
-        {
-            a = int(str[i]) - 97;
-            arr_2[a]++;
-        }
-
-        if (arr == arr_2)
-        {
-            cout << "YES" << endl;
-        }
         else
         {
-            cout << "NO" << endl;
+            cout << (b * (a / 2)) + (c * (a / 2)) + c << endl;
         }
 
         // cout << Case # << case_no << : << solution << endl;      //--> Apply Double Apostrophe

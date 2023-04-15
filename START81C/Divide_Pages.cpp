@@ -16,30 +16,15 @@ int main()
     cin >> t;
     while (t--)
     {
-        array<int, 26> arr = {0}, arr_2 = {0};
-        string str;
-        cin >> str;
-        int m, a;
-        m = str.size() / 2;
-
-        for (int i = 0; i < m; i++)
+        int a, sum(0);
+        cin >> a;
+        int arr[a];
+        for (int i = 0; i < a; i++)
         {
-            a = int(str[i]) - 97;
-            arr[a]++;
+            cin >> arr[i];
+            sum += arr[i];
         }
-
-        if (str.size() % 2 != 0)
-        {
-            m++;
-        }
-
-        for (int i = m; i < str.size(); i++)
-        {
-            a = int(str[i]) - 97;
-            arr_2[a]++;
-        }
-
-        if (arr == arr_2)
+        if (sum % 2 == 0)
         {
             cout << "YES" << endl;
         }

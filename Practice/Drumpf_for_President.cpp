@@ -9,6 +9,8 @@ typedef unsigned long long ull;
 /*================================================*/
 /*================================================*/
 
+const int N = 1e5 + 10;
+
 int main()
 {
     ll t(1);
@@ -16,37 +18,33 @@ int main()
     cin >> t;
     while (t--)
     {
-        array<int, 26> arr = {0}, arr_2 = {0};
-        string str;
-        cin >> str;
-        int m, a;
-        m = str.size() / 2;
-
-        for (int i = 0; i < m; i++)
+        int n, k, count(0);
+        cin >> n >> k;
+        int x = -1;
+        array<int, N> arr = {0}, arr_2 = {0};
+        for (int i = 1; i <= n; i++)
         {
-            a = int(str[i]) - 97;
-            arr[a]++;
+            cin >> arr[i];
+            if (arr[i] == i)
+            {
+                arr[i] = 0;
+            }
         }
 
-        if (str.size() % 2 != 0)
+        for (int i = 1; i <= n; i++)
         {
-            m++;
+            arr_2[arr[i]]++;
+            // cout << arr_2[i];
         }
 
-        for (int i = m; i < str.size(); i++)
+        for (int i = 1; i <= n; i++)
         {
-            a = int(str[i]) - 97;
-            arr_2[a]++;
+            if (arr_2[i] > x)
+            {
+                x = arr_2[i];
+            }
         }
-
-        if (arr == arr_2)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << x << endl;
 
         // cout << Case # << case_no << : << solution << endl;      //--> Apply Double Apostrophe
         // case_no++;
